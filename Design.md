@@ -32,6 +32,16 @@ Golang has a few libraries for WebSockets including [`gorilla/websocket`](https:
 
 > Server Sent Events (SSE)
 
-**SSE** are a standard describing how servers can initiate data transmission towards the client once an initial client connection has been established. They are commonly used to send real-time updates to a web application. They are a one-way channel from the server to the client
+**SSE** are a standard describing how servers can initiate data transmission towards the client once an initial client connection has been established. They are commonly used to send real-time updates to a web application. They are a one-way channel from the server to the client and only serve to push data from the server to the client. Everything that can be done with SSEs can typically just be done with Websockets as well. The main difference is that SSEs are a one-way channel and Websockets are a two-way channel. The main advantage of SSEs is that they are easier to implement than Websockets. The main disadvantage is that they are a one-way channel.
+
+SSEs are primarily for when you would expect very little information from the client. For this application, since we don't require a two way communication, server side events are appealing.
+
+Server side events are really easy to set up with Golang with [`gin`](https://gin-gonic.com/).
 
 > gRPC
+
+gRPC started at Google to implement interservice communication efficiently. It is a high performance, open source, universal RPC framework that puts mobile and HTTP/2 first. It is based on the HTTP/2 protocol and uses Protocol Buffers as the interface description language. gRPC is designed to be extensible and supports authentication, load balancing, logging, and monitoring. It is also designed to be language agnostic and can be used with any language that supports HTTP/2. gRPC is a good option for when you need to send a lot of data and need to do it quickly. It is also a good option for when you need to send data between services.
+
+gRPC is basically when code executing in a function in one process invokes a function in another process and the two processes can be on the same machine or on different machines. gRPC is designed to replace the needs for sockets in some cases and it uses HTTP/2 as the transport protocol. The main strengths of gRPC lie in the fact that it uses lightweight messages with Protobuf and it is designed to be fast and efficient. The main issues with it come from the fact that this approach is a bit more new and some browsers might not fully have support for it.
+
+For sending large amounts of data, gRPC is better when compared to webhooks given the fact that gRPC is able to process multiple requests in parallel and uses the quick and lightweight Protobuf format.
