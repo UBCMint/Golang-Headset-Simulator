@@ -45,3 +45,11 @@ gRPC started at Google to implement interservice communication efficiently. It i
 gRPC is basically when code executing in a function in one process invokes a function in another process and the two processes can be on the same machine or on different machines. gRPC is designed to replace the needs for sockets in some cases and it uses HTTP/2 as the transport protocol. The main strengths of gRPC lie in the fact that it uses lightweight messages with Protobuf and it is designed to be fast and efficient. The main issues with it come from the fact that this approach is a bit more new and some browsers might not fully have support for it.
 
 For sending large amounts of data, gRPC is better when compared to webhooks given the fact that gRPC is able to process multiple requests in parallel and uses the quick and lightweight Protobuf format.
+
+### Conclusion
+
+In the end, for ease of implementation and speed, we will be using SSEs. This is because we don't need a two way communication and SSEs are also easier to implement than gRPC. This is why we will be using SSEs for this project.
+
+## Design Overview
+
+There are 2 central components towards designing a simpler generative model for the headset. The first is the actual SSE logic that sends the data and secondly is the logic that generates the data. The server will be responsible for generating the data and sending it to the client. The client will be responsible for receiving the data and displaying it.
