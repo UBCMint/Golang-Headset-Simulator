@@ -6,4 +6,4 @@ This is an open source simulation framework for replicating neurotech headsets i
 
 ## Key Details
 
-All information about the design decisions is located in the design document. `main.go` holds the core logic of this application.
+All information about the design decisions is located in the design document. `main.go` holds the core logic of this application. To run this application, simply run `go run main.go` in the terminal. To run with air, run `air` in the terminal.

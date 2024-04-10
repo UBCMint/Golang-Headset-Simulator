@@ -1,0 +1,21 @@
+# .air.toml
+
+# Specify the entry point of your Go application
+entry = "main.go"
+
+# Specify the directories to watch for changes
+dirs = [
+  "app",
+  "config",
+]
+
+# Specify the file extensions to watch for changes
+exts = [
+  "go",
+  "html",
+  "css",
+  "js",
+]
+
+# Specify the command to run when changes are detected
+command = "go run main.go"
